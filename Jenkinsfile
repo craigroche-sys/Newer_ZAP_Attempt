@@ -32,10 +32,18 @@ pipeline {
     }
      post{
             always{
-                archiveZap()
+                archiveZap(
+failAllAlerts:          false,   // true = fail build if ANY alert exists
+      failHighAlerts:         true,    // fail on High severity alerts
+      failMediumAlerts:       false,   // set to true if you want to fail on Medium too
+      failLowAlerts:          false,   // set to true to include Low severity
+      falsePositivesFilePath: '',      // e.g., 'zap-false-positives.txt' if you have one
+      keepAlive:              false    // false = shut ZAP down at end
+)
             }
         }
 }
+
 
 
 
