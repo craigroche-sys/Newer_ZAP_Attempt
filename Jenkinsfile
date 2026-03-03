@@ -29,13 +29,14 @@ pipeline {
                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
         }
-        post{
+    }
+     post{
             always{
                 archiveZap()
             }
         }
-    }
 }
+
 
 
 
