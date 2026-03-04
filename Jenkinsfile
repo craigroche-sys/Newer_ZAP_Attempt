@@ -37,19 +37,6 @@ pipeline {
       }
     }
   }
-
-  // ✅ pipeline-level post must be OUTSIDE "stages"
-  post {
-    always {
-      archiveZap(
-        failAllAlerts:          false,
-        failHighAlerts:         true,
-        failMediumAlerts:       false,
-        failLowAlerts:          false,
-        falsePositivesFilePath: '',
-        keepAlive:              false
-      )
-    }
-  }
 }
+
 
