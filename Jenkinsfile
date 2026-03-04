@@ -36,8 +36,28 @@ pipeline {
         }
       }
     }
+    stage('Archive ZAP Report'){
+      steps{
+        script{
+          archiveZap(
+            failAllAlerts: -1,
+            failHighAlerts: 0,
+            failMediumAlerts:5,
+            failLowAlerts: -1,
+            keepAlive: false
+            )
+        }
+      }
+    }   
+  }
+
+  post{
+    always{
+      archiveArtifacts artifacts: '**/zap*.html, **/zap*.xml, **/zap*.json, fingerprint: true, allowEmptyArchive: true
+    }
   }
 }
+
 
 
 
