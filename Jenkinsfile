@@ -44,7 +44,7 @@ pipeline {
             failAllAlerts: -1,
             failHighAlerts: -1,
             failMediumAlerts: -1,
-            failLowAlerts: -1,
+            failLowAlerts: 0,
             keepAlive: false
             )
         }
@@ -58,6 +58,7 @@ pipeline {
     }
   }
 }
+
 
 
 
