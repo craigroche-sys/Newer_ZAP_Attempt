@@ -22,6 +22,7 @@ pipeline {
             timeout: 500,
             zapHome: "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\ZAP_Test_4\\ZAP\\Zed Attack Proxy",
             allowedHosts: ['github.com']
+            sessionpath: "C:\\Users\\croche2\\Sessions\\pipedream.session"
           )
         }
       }
@@ -57,6 +58,7 @@ pipeline {
     }
   }
 }
+
 
 
 
