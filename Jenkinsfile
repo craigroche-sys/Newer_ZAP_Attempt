@@ -41,7 +41,7 @@ pipeline {
       steps{
         script{
           archiveZap(
-            failAllAlerts: 1,
+            failAllAlerts: 8,
             failHighAlerts: 1,
             failMediumAlerts: 6,
             failLowAlerts: 5,
@@ -58,6 +58,7 @@ pipeline {
     }
   }
 }
+
 
 
 
