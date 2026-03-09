@@ -54,10 +54,11 @@ pipeline {
 
   post{
     always{
-      archiveArtifacts artifacts: '**/zap*.html, **/zap*.xml, **/zap*.json', fingerprint: true, allowEmptyArchive: true
+      archiveArtifacts artifacts: '/zap.html', fingerprint: true, allowEmptyArchive: true
     }
   }
 }
+
 
 
 
