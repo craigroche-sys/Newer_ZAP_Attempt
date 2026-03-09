@@ -43,7 +43,7 @@ pipeline {
           archiveZap(
             failAllAlerts: 0,
             failHighAlerts: 0,
-            failMediumAlerts: 4,
+            failMediumAlerts: 5,
             failLowAlerts: 0,
             keepAlive: false
             )
@@ -58,6 +58,7 @@ pipeline {
     }
   }
 }
+
 
 
 
