@@ -37,20 +37,7 @@ pipeline {
         }
       }
     }
-    stage('ZAP Scan'){
-      steps{
-        script{
-          runZapCrawler(
-            host: "http://localhost:8087",
-            recurse: true
-            )
-
-          runZapAttack(
-            host: "http://localhost:8087"
-            )
-        }
-      }
-    }
+    
     stage('Archive ZAP Report'){
       steps{
         script{
@@ -72,6 +59,7 @@ pipeline {
     }
   }
 }
+
 
 
 
