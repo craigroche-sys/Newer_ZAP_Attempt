@@ -37,6 +37,16 @@ pipeline {
         }
       }
     }
+    stage('ZAP Scan'){
+      steps{
+        script{
+          zapFullScan(
+            generateHtmlReport: true,
+            htmlReportName : "zap.html"
+            )
+        }
+      }
+    }
     stage('Archive ZAP Report'){
       steps{
         script{
@@ -58,6 +68,7 @@ pipeline {
     }
   }
 }
+
 
 
 
