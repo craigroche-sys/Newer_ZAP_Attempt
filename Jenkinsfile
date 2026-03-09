@@ -40,9 +40,13 @@ pipeline {
     stage('ZAP Scan'){
       steps{
         script{
-          zapFullScan(
-            generateHtmlReport: true,
-            htmlReportName : "zap.html"
+          runZapCrawler(
+            host: "http://localhost:8087",
+            recurse: true
+            )
+
+          runZapAttack(
+            host: "http://localhost:8087"
             )
         }
       }
@@ -64,10 +68,11 @@ pipeline {
 
   post{
     always{
-      archiveArtifacts artifacts: '**/zap.html', fingerprint: true, allowEmptyArchive: true
+      archiveArtifacts artifacts: 'ZAP_Report.html', fingerprint: true, allowEmptyArchive: true
     }
   }
 }
+
 
 
 
