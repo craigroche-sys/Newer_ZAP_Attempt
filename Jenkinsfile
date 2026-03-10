@@ -39,6 +39,27 @@ pipeline {
         }
       }
     }
+
+    
+stage('Explore & Attack with ZAP') {
+  steps {
+    script {
+      def target = 'http://localhost:8087'
+      
+      runZapCrawler(
+        host: target,
+        recurse: true,
+        subtreeOnly: false
+      )
+
+      runZapAttack(
+        inScopeOnly: true,
+        recurse: true
+      )
+    }
+  }
+}
+
     
     stage('Archive ZAP Report'){
       steps{
@@ -61,6 +82,7 @@ pipeline {
     }
   }
 }
+
 
 
 
