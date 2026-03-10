@@ -77,12 +77,9 @@ stage('Explore & Attack with ZAP') {
     }   
   }
 
-  post{
-    always{
-      archiveArtifacts artifacts: 'ZAP_Report.html', fingerprint: true, allowEmptyArchive: true
-    }
-  }
+
 }
+
 
 
 
