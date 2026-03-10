@@ -45,13 +45,12 @@ pipeline {
 stage('Explore & Attack with ZAP') {
   steps {
     script {
-      def target = 'https://qa2022-30246.sotiqa.com'
       
       runZapCrawler(
-        host: 'https://qa2022-30246.sotiqa.com',
+        host: 'https://qa2022-30246.sotiqa.com/MobiControl/*',
         recurse: true,
         subtreeOnly: false,
-        contextName: 'pipedream-context'
+        contextName: 'mobicontrol-context'
       )
 
       runZapAttack(
@@ -83,6 +82,7 @@ stage('Explore & Attack with ZAP') {
     }
   }
 }
+
 
 
 
