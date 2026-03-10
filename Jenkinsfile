@@ -24,7 +24,7 @@ pipeline {
             allowedHosts: ['github.com',
                           '127.0.0.1',
                           'localhost',
-                          'qa2022-30246.sotiqa.com'],
+                          'qa2022-30246.sotiqa.*'],
             sessionPath: "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\ZAP_Test_4\\Sessions\\pipedream.session"
           )
         }
@@ -45,10 +45,10 @@ pipeline {
 stage('Explore & Attack with ZAP') {
   steps {
     script {
-      def target = 'https://qa2022-30246.sotiqa.com/*'
+      def target = 'https://qa2022-30246.sotiqa.com'
       
       runZapCrawler(
-        host: 'https://qa2022-30246.sotiqa.com/*',
+        host: 'https://qa2022-30246.sotiqa.com',
         recurse: true,
         subtreeOnly: false,
         contextName: 'pipedream-context'
@@ -83,6 +83,7 @@ stage('Explore & Attack with ZAP') {
     }
   }
 }
+
 
 
 
