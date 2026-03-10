@@ -47,7 +47,7 @@ stage('Explore & Attack with ZAP') {
       def target = 'http://localhost:8087'
       
       runZapCrawler(
-        host: target,
+        host: 'http://localhost:8087',
         recurse: true,
         subtreeOnly: false,
         contextName: 'pipedream-context'
@@ -82,4 +82,5 @@ stage('Explore & Attack with ZAP') {
     }
   }
 }
+
 
