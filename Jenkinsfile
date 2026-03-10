@@ -48,7 +48,7 @@ stage('Explore & Attack with ZAP') {
       def target = 'https://qa2022-30246.sotiqa.com/*'
       
       runZapCrawler(
-        host: 'https://qa2022-30246.sotiqa.com/*n',
+        host: 'https://qa2022-30246.sotiqa.com/*',
         recurse: true,
         subtreeOnly: false,
         contextName: 'pipedream-context'
@@ -83,6 +83,7 @@ stage('Explore & Attack with ZAP') {
     }
   }
 }
+
 
 
 
