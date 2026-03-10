@@ -24,7 +24,7 @@ pipeline {
             allowedHosts: ['github.com',
                           '127.0.0.1',
                           'localhost',
-                          'qa2022-30246.sotiqa.*'],
+                          'qa2022-30246.sotiqa.com'],
             sessionPath: "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\ZAP_Test_4\\Sessions\\pipedream.session"
           )
         }
@@ -82,6 +82,7 @@ stage('Explore & Attack with ZAP') {
     }
   }
 }
+
 
 
 
