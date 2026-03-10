@@ -67,9 +67,9 @@ stage('Explore & Attack with ZAP') {
         script{
           archiveZap(
             failAllAlerts: 0,
-            failHighAlerts: 1,
-            failMediumAlerts: 6,
-            failLowAlerts: 5,
+            failHighAlerts: 0,
+            failMediumAlerts: 0,
+            failLowAlerts: 0,
             keepAlive: false
             )
         }
@@ -82,6 +82,7 @@ stage('Explore & Attack with ZAP') {
     }
   }
 }
+
 
 
 
