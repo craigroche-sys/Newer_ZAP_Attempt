@@ -49,7 +49,8 @@ stage('Explore & Attack with ZAP') {
       runZapCrawler(
         host: target,
         recurse: true,
-        subtreeOnly: false
+        subtreeOnly: false,
+        contextName: 'pipedream'
       )
 
       runZapAttack(
@@ -82,6 +83,7 @@ stage('Explore & Attack with ZAP') {
     }
   }
 }
+
 
 
 
