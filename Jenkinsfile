@@ -19,12 +19,9 @@ pipeline {
           startZap(
             host: "127.0.0.1",
             port: 9091,
-            timeout: 1000,
+            timeout: 500,
             zapHome: "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\ZAP_Test_4\\ZAP\\Zed Attack Proxy",
-            allowedHosts: ['github.com',
-                          '127.0.0.1',
-                          'localhost',
-                          'qa2022-30246.sotiqa.*'],
+            allowedHosts: ['github.com'],
             sessionPath: "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\ZAP_Test_4\\Sessions\\pipedream.session"
           )
         }
@@ -40,28 +37,6 @@ pipeline {
         }
       }
     }
-
-    
-stage('Explore & Attack with ZAP') {
-  steps {
-    script {
-      
-      runZapCrawler(
-        host: 'https://qa2022-30246.sotiqa.com/MobiControl/*',
-        recurse: true,
-        subtreeOnly: false,
-        contextName: 'mobicontrol-context'
-      )
-
-      runZapAttack(
-        inScopeOnly: true,
-        recurse: true
-      )
-    }
-  }
-}
-
-    
     stage('Archive ZAP Report'){
       steps{
         script{
@@ -76,12 +51,35 @@ stage('Explore & Attack with ZAP') {
       }
     }   
   }
- post{
+
+  post{
     always{
-      archiveArtifacts artifacts: 'ZAP_Report.html', fingerprint: true, allowEmptyArchive: true
+      archiveArtifacts artifacts: '**/zap.html', fingerprint: true, allowEmptyArchive: true
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
