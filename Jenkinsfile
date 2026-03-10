@@ -21,7 +21,9 @@ pipeline {
             port: 9091,
             timeout: 500,
             zapHome: "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\ZAP_Test_4\\ZAP\\Zed Attack Proxy",
-            allowedHosts: ['github.com'],
+            allowedHosts: ['github.com',
+                          '127.0.0.1',
+                          'localhost'],
             sessionPath: "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\ZAP_Test_4\\Sessions\\pipedream.session"
           )
         }
@@ -59,6 +61,7 @@ pipeline {
     }
   }
 }
+
 
 
 
