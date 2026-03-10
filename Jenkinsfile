@@ -50,7 +50,7 @@ stage('Explore & Attack with ZAP') {
         host: target,
         recurse: true,
         subtreeOnly: false,
-        contextName: 'pipedream'
+        contextName: 'pipedream-context'
       )
 
       runZapAttack(
@@ -83,6 +83,7 @@ stage('Explore & Attack with ZAP') {
     }
   }
 }
+
 
 
 
