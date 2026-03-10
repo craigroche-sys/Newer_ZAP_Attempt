@@ -47,7 +47,7 @@ stage('Explore & Attack with ZAP') {
     script {
       
       runZapCrawler(
-        host: 'https://qa2022-30246.sotiqa.com/MobiControl/*',
+        host: 'https://qa2022-30246.sotiqa.com',
         recurse: true,
         subtreeOnly: false,
         contextName: 'mobicontrol-context'
@@ -78,10 +78,11 @@ stage('Explore & Attack with ZAP') {
   }
  post{
     always{
-      archiveArtifacts artifacts: 'ZAP_Report.html', fingerprint: true, allowEmptyArchive: true
+      echo 'Build Complete'
     }
   }
 }
+
 
 
 
