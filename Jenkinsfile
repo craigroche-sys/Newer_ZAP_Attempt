@@ -19,7 +19,7 @@ pipeline {
           startZap(
             host: "127.0.0.1",
             port: 9091,
-            timeout: 500,
+            timeout: 1000,
             zapHome: "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\ZAP_Test_4\\ZAP\\Zed Attack Proxy",
             allowedHosts: ['github.com',
                           '127.0.0.1',
@@ -76,6 +76,10 @@ stage('Explore & Attack with ZAP') {
       }
     }   
   }
-
-
+ post{
+    always{
+      archiveArtifacts artifacts: 'ZAP_Report.html', fingerprint: true, allowEmptyArchive: true
+    }
+  }
 }
+
